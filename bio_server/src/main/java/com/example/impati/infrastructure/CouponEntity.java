@@ -1,4 +1,4 @@
-package com.example.impati.bio_server.infrastructure;
+package com.example.impati.infrastructure;
 
 import com.example.impati.model.Coupon;
 import jakarta.persistence.Column;
@@ -69,7 +69,7 @@ public class CouponEntity {
 
     public static CouponEntity from(Coupon coupon) {
         return new CouponEntity(
-                Long.valueOf(coupon.couponId()),
+                coupon.couponId() == null ? null : Long.valueOf(coupon.couponId()),
                 coupon.memberNumber(),
                 Strings.join(coupon.usableFranchiseNumber(), ','),
                 Strings.join(coupon.categories(), ','),

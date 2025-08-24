@@ -1,4 +1,4 @@
-package com.example.impati.bio_server.application;
+package com.example.impati.application;
 
 import com.example.impati.model.Coupon;
 import com.example.impati.model.Input;

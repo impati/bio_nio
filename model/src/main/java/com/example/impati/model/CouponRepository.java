@@ -5,4 +5,6 @@ import java.util.List;
 public interface CouponRepository {
 
     List<Coupon> findBy(String memberNumber);
+
+    Coupon save(Coupon coupon);
 }

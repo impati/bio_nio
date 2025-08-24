@@ -1,0 +1,16 @@
+POST http://localhost:8080/members/tester/coupons
+Content-Type: application/json
+
+{
+  "franchiseNumbers": [
+    "5",
+    "6"
+  ],
+  "categories": [
+    "kr",
+    "jp"
+  ],
+  "deliveryType": "DELIVERY",
+  "firstOrder": true,
+  "membership": true
+}

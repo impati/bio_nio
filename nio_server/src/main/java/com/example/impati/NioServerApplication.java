@@ -1,4 +1,4 @@
-package com.example.impati.nio_server;
+package com.example.impati;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

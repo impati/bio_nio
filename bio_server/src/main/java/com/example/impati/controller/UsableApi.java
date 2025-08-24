@@ -1,6 +1,6 @@
-package com.example.impati.bio_server.controller;
+package com.example.impati.controller;
 
-import com.example.impati.bio_server.application.UsableService;
+import com.example.impati.application.UsableService;
 import com.example.impati.model.Coupon;
 import com.example.impati.model.Input;
 import java.util.List;

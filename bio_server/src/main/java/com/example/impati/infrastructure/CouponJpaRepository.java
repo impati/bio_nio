@@ -1,4 +1,4 @@
-package com.example.impati.bio_server.infrastructure;
+package com.example.impati.infrastructure;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
