@@ -3,9 +3,11 @@ package com.example.impati.client;
 import com.example.impati.model.client.ReactiveShopClient;
 import com.example.impati.model.client.ShopClient;
 import java.util.List;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+@Component
 public class ShopClientAdaptor implements ShopClient, ReactiveShopClient {
 
     private final WebClient client;
@@ -17,16 +19,16 @@ public class ShopClientAdaptor implements ShopClient, ReactiveShopClient {
     @Override
     public Mono<String> franchise(final String shopNumber) {
         return client.get().uri("/shopNumbers/{shopNumber}/franchise", shopNumber)
-                .retrieve()
-                .bodyToMono(String.class);
+                     .retrieve()
+                     .bodyToMono(String.class);
     }
 
     @Override
     public Mono<List<String>> categories(final String shopNumber) {
         return client.get().uri("/shopNumbers/{shopNumber}/categories", shopNumber)
-                .retrieve()
-                .bodyToFlux(String.class)
-                .collectList();
+                     .retrieve()
+                     .bodyToFlux(String.class)
+                     .collectList();
     }
 
     @Override

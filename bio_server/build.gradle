@@ -4,6 +4,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'   // MySQL 사용하는 경우
 
     implementation project(":model")
+    runtimeOnly project(":client")
 }
 
 bootJar.enabled = true

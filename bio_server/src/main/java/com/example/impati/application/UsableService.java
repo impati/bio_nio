@@ -8,7 +8,9 @@ import com.example.impati.model.rule.Rule;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class UsableService {
 

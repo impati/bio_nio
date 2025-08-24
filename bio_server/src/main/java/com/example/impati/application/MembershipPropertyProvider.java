@@ -7,7 +7,9 @@ import com.example.impati.model.property.MembershipProperty;
 import com.example.impati.model.property_loader.PropertyProvider;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class MembershipPropertyProvider implements PropertyProvider<MembershipProperty> {
 

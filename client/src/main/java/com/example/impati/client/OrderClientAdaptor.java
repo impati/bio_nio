@@ -3,9 +3,11 @@ package com.example.impati.client;
 import com.example.impati.model.OrderDetail;
 import com.example.impati.model.client.OrderClient;
 import com.example.impati.model.client.ReactiveOrderClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+@Component
 public class OrderClientAdaptor implements OrderClient, ReactiveOrderClient {
 
     private final WebClient webClient;
@@ -28,14 +30,14 @@ public class OrderClientAdaptor implements OrderClient, ReactiveOrderClient {
     @Override
     public Mono<Boolean> hasOrderHistory(final String memberNumber) {
         return webClient.get().uri("/order-histories/memberNumber/{memberNumber}", memberNumber)
-                .retrieve()
-                .bodyToMono(Boolean.class);
+                        .retrieve()
+                        .bodyToMono(Boolean.class);
     }
 
     @Override
     public Mono<OrderDetail> getOrderDetail(final String orderNumber) {
         return webClient.get().uri("/orders/{orderNumber}", orderNumber)
-                .retrieve()
-                .bodyToMono(OrderDetail.class);
+                        .retrieve()
+                        .bodyToMono(OrderDetail.class);
     }
 }

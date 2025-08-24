@@ -7,7 +7,9 @@ import com.example.impati.model.property.FranchiseProperty;
 import com.example.impati.model.property_loader.PropertyProvider;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class FranchisePropertyProvider implements PropertyProvider<FranchiseProperty> {
 
