@@ -1,0 +1,6 @@
+delay:
+  membership: 100
+  get-order: 100
+  has-order-history: 100
+  shop-categories: 100
+  shop-franchise: 100

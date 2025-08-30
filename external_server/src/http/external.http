@@ -1,0 +1,14 @@
+GET http://localhost:8080/members/tester/membership
+
+
+###
+GET http://localhost:8080/order-histories/memberNumber/tester
+
+###
+GET http://localhost:8080/orders/12345
+
+###
+GET http://localhost:8080/shopNumbers/testShop/franchise
+
+###
+GET http://localhost:8080/shopNumbers/testShop/categories
