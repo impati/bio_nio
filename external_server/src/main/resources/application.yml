@@ -4,3 +4,7 @@ delay:
   has-order-history: 100
   shop-categories: 100
   shop-franchise: 100
+  coupon-issuable: 100
+  member-coupon: 100
+  shop-coupon: 100
+  coupon: 100

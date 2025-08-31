@@ -17,15 +17,20 @@ import reactor.core.publisher.Mono;
 public class ShopController {
 
     private final DelayProperties delayProperties;
+    private final CallChecker callChecker;
 
     @GetMapping("/shopNumbers/{shopNumber}/franchise")
     public Mono<String> getFranchise(@PathVariable String shopNumber) {
+        callChecker.count("getFranchise");
+        log.info("getFranchise : {}", shopNumber);
         return Mono.just(shopNumber)
                    .delayElement(Duration.ofMillis(delayProperties.shopFranchise()));
     }
 
     @GetMapping("/shopNumbers/{shopNumber}/categories")
     public Mono<List<String>> getCategories(@PathVariable String shopNumber) {
+        callChecker.count("getCategories");
+        log.info("getCategories : {}", shopNumber);
         return Mono.just(List.of("jp", "kr"))
                    .delayElement(Duration.ofMillis(delayProperties.shopFranchise()));
     }

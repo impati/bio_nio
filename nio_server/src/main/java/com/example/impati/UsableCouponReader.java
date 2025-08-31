@@ -14,11 +14,13 @@ import com.example.impati.model.client.ReactiveExternalCouponClient;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 @Slf4j
 @SuppressWarnings("OptionalIsPresent")
 @RequiredArgsConstructor
+@Component
 public class UsableCouponReader {
 
     private final ReactiveCouponRepository couponRepository;
@@ -46,7 +48,7 @@ public class UsableCouponReader {
 
 
                        return couponRepository.findBy(memberNumber)
-                                              .flatMap(fetchedCoupons -> couponCache.put(memberNumber, fetchedCoupons).thenReturn(fetchedCoupons));
+                                              .flatMap(fetchedCoupons -> couponCache.putCoupon(memberNumber, fetchedCoupons).thenReturn(fetchedCoupons));
                    });
 
         Mono<List<MemberCoupon>> memberCouponMono = memberCouponCache.findByMember(memberNumber)
@@ -56,7 +58,7 @@ public class UsableCouponReader {
                     }
 
                     return memberCouponRepository.findByMember(memberNumber)
-                                                .flatMap(fetchedMemberCoupons -> memberCouponCache.put(memberNumber, fetchedMemberCoupons)
+                                                .flatMap(fetchedMemberCoupons -> memberCouponCache.putMemberCoupon(memberNumber, fetchedMemberCoupons)
                                                                                                  .thenReturn(fetchedMemberCoupons));
                 });
 
@@ -69,7 +71,7 @@ public class UsableCouponReader {
                        }
 
                           return shopCouponClient.getShopCoupon(shopNumber)
-                                                 .flatMap(fetchedCoupons -> shopCouponCache.put(shopNumber, fetchedCoupons).thenReturn(fetchedCoupons));
+                                                 .flatMap(fetchedCoupons -> shopCouponCache.putShopCoupon(shopNumber, fetchedCoupons).thenReturn(fetchedCoupons));
                        }).flatMap(shopCoupons -> {
                             if(shopCoupons.isEmpty()){
                                  return Mono.just(List.of());

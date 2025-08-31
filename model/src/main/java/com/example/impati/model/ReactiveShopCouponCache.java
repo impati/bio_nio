@@ -8,6 +8,6 @@ public interface ReactiveShopCouponCache {
 
     Mono<Optional<List<ShopCoupon>>> getShopCoupon(String shopNumber);
 
-    Mono<Void> put(String shopNumber, List<ShopCoupon> shopCoupons);
+    Mono<Void> putShopCoupon(String shopNumber, List<ShopCoupon> shopCoupons);
 
 }

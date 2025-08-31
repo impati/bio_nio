@@ -3,6 +3,7 @@ package com.example.impati.client;
 import com.example.impati.model.client.ReactiveShopClient;
 import com.example.impati.model.client.ShopClient;
 import java.util.List;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -27,8 +28,8 @@ public class ShopClientAdaptor implements ShopClient, ReactiveShopClient {
     public Mono<List<String>> categories(final String shopNumber) {
         return client.get().uri("/shopNumbers/{shopNumber}/categories", shopNumber)
                      .retrieve()
-                     .bodyToFlux(String.class)
-                     .collectList();
+                     .bodyToMono(new ParameterizedTypeReference<List<String>>() {
+                     });
     }
 
     @Override

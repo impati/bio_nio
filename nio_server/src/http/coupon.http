@@ -1,0 +1,1 @@
+GET http://localhost:8081/members/tester?orderNumber=1231&shopNumber=A

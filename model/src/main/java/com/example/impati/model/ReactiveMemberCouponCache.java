@@ -8,5 +8,5 @@ public interface ReactiveMemberCouponCache {
 
     Mono<Optional<List<MemberCoupon>>> findByMember(String memberNumber);
 
-    Mono<Void> put(String memberNumber, List<MemberCoupon> memberCoupons);
+    Mono<Void> putMemberCoupon(String memberNumber, List<MemberCoupon> memberCoupons);
 }

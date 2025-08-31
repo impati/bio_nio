@@ -8,7 +8,11 @@ public record DelayProperties(
         long shopCategories,
         long membership,
         long hasOrderHistory,
-        long getOrder
+        long getOrder,
+        long couponIssuable,
+        long memberCoupon,
+        long shopCoupon,
+        long coupon
 ) {
 
 }

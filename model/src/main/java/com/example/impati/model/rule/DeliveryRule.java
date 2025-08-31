@@ -5,7 +5,9 @@ import com.example.impati.model.property.DeliveryProperty;
 import com.example.impati.model.property.Properties;
 import com.example.impati.model.property.Property;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DeliveryRule implements Rule {
 
     @Override

@@ -1,9 +1,10 @@
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
-    runtimeOnly 'io.asyncer:r2dbc-mysql'      // MySQL R2DBC 드라이버
+    implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+
 
     implementation project(":model")
+    runtimeOnly project(":client")
 }
 
 bootJar.enabled = true

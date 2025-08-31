@@ -7,8 +7,10 @@ import com.example.impati.model.property.MembershipProperty;
 import com.example.impati.model.property_loader.ReactivePropertyProvider;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+@Component
 @RequiredArgsConstructor
 public class ReactiveMembershipPropertyProvider implements ReactivePropertyProvider<MembershipProperty> {
 

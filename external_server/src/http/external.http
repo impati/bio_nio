@@ -12,3 +12,6 @@ GET http://localhost:8080/shopNumbers/testShop/franchise
 
 ###
 GET http://localhost:8080/shopNumbers/testShop/categories
+
+###
+GET http://localhost:8080/call-check

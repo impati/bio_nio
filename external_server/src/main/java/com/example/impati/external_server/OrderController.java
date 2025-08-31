@@ -14,15 +14,20 @@ import reactor.core.publisher.Mono;
 public class OrderController {
 
     private final DelayProperties delayProperties;
+    private final CallChecker callChecker;
 
     @GetMapping("/order-histories/memberNumber/{memberNumber}")
     public Mono<Boolean> hasOrderHistory(@PathVariable String memberNumber) {
-        return Mono.just("firstMember".equals(memberNumber))
+        callChecker.count("hasOrderHistory");
+        log.info("hasOrderHistory : {}", memberNumber);
+        return Mono.just("tester".equals(memberNumber))
                    .delayElement(Duration.ofMillis(delayProperties.hasOrderHistory()));
     }
 
     @GetMapping("/orders/{orderNumber}")
     public Mono<OrderDetail> getOrder(@PathVariable String orderNumber) {
+        callChecker.count("getOrder");
+        log.info("getOrder : {}", orderNumber);
         return Mono.just(new OrderDetail("DELIVERY"))
                    .delayElement(Duration.ofMillis(delayProperties.getOrder()));
     }

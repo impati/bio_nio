@@ -14,10 +14,12 @@ import reactor.core.publisher.Mono;
 public class MemberController {
 
     private final DelayProperties delayProperties;
+    private final CallChecker callChecker;
 
     @GetMapping("/members/{memberNumber}/membership")
     public Mono<Boolean> membership(@PathVariable String memberNumber) {
-        log.info("delay : {}", delayProperties.membership());
+        callChecker.count("membership");
+        log.info("membership : {}", memberNumber);
         return Mono.just(true)
                    .delayElement(Duration.ofMillis(delayProperties.membership()));
     }
