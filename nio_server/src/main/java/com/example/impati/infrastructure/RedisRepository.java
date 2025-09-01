@@ -117,7 +117,7 @@ public class RedisRepository implements ReactiveCouponCache,
     private Mono<Void> writeJson(String key, Object value) {
         try {
             String json = mapper.writeValueAsString(value);
-            return template.opsForValue().set(key, json, Duration.of(1000, ChronoUnit.MILLIS)).then();
+            return template.opsForValue().set(key, json, Duration.of(1, ChronoUnit.MINUTES)).then();
         } catch (Exception e) {
             return Mono.error(e);
         }

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ClientConfig {
 
-    private static final String TARGET_SERVER_BASE_URL = "http://localhost:8080";
+    private static final String TARGET_SERVER_BASE_URL = "http://ec2-43-200-130-65.ap-northeast-2.compute.amazonaws.com:8080";
 
     @Bean
     public ExternalCouponProperty externalCouponProperty() {

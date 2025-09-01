@@ -18,7 +18,6 @@ public class UseValidator {
 
     public List<Coupon> validate(Properties properties, List<Coupon> coupons) {
         List<Coupon> validCoupons = new ArrayList<>();
-        log.info("coupons.size(): {}", coupons.size());
         for (Coupon coupon : coupons) {
 
             try {
@@ -26,7 +25,6 @@ public class UseValidator {
                     rule.validate(properties, coupon);
                 }
             } catch (RuntimeException e) {
-                log.info("coupon validate failed, rule: ", e);
                 continue;
             }
 

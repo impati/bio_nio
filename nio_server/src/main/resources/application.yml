@@ -1,7 +1,17 @@
-spring:
-  data:
-    redis:
-      host: localhost
-      port: 6379
 server:
   port: 8081
+
+spring:
+  data:
+    redis: # (Spring Boot 2.x/3.x 공통)
+      host: ${cache_host}
+      port: 6379
+      # TLS(전송 암호화) 사용 시
+      timeout: 3s
+      lettuce:
+        pool:
+          max-active: 16
+          max-idle: 8
+          min-idle: 2
+      ssl:
+        enabled: true

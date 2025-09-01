@@ -97,7 +97,7 @@ public class UsableCouponReader {
                        List<Long> shopCouponIds = tuple.getT2();
                        List<MemberCoupon> memberCoupons = tuple.getT3();
 
-                       log.info("coupon: {}, shopCoupon: {}, memberCoupon: {}", coupons, shopCouponIds, memberCoupons);
+                       log.debug("coupon: {}, shopCoupon: {}, memberCoupon: {}", coupons, shopCouponIds, memberCoupons);
                        return coupons.stream().toList();
                    });
     }
